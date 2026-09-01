@@ -1,0 +1,251 @@
+/* Nanofase 2: visual retrô completo (cores, layout, cursor, scanlines) */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --verde: #39ff14;          /* verde terminal clássico */
+    --verde-fraco: #39ff1422;  /* verde com baixa opacidade */
+    --preto: #0a0a0a;          /* fundo quase preto */
+}
+
+body {
+    font-family: "Courier New", monospace; /* fonte retrô nativa */
+    background-color: var(--preto);
+    color: var(--verde);
+    /* Vinheta CRT: linhas horizontais finas em toda a página */
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.25) 2px,
+        rgba(0, 0, 0, 0.25) 3px
+    );
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navegação via âncoras (#sobre, #contato) rola suavemente */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ---------- CABEÇALHO ---------- */
+.header {
+    border-bottom: 1px solid var(--verde-fraco);
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px var(--verde); /* brilho neon */
+}
+
+.nav a {
+    color: var(--verde);
+    text-decoration: none;
+    margin-left: 24px;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.nav a:hover {
+    text-shadow: 0 0 8px var(--verde); /* acende ao passar o mouse */
+}
+
+/* ---------- HERO ---------- */
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 24px;
+}
+
+.hero .container {
+    max-width: 700px;
+}
+
+/* ---------- RODAPÉ ---------- */
+.footer {
+    border-top: 1px solid var(--verde-fraco);
+    padding: 24px 0;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.footer .container {
+    text-align: center;
+}
+
+/* Linha de status decorativa */
+.status-line {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--verde);
+    opacity: 0.7;
+    margin-bottom: 32px;
+}
+
+/* Título grande */
+.titulo {
+    font-size: clamp(32px, 6vw, 64px); /* responsivo: ajusta com a tela */
+    font-weight: bold;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    text-shadow: 0 0 12px var(--verde); /* brilho neon */
+    margin-bottom: 24px;
+}
+
+/* Cursor piscando — a animação vive aqui */
+.cursor {
+    display: inline-block;
+    animation: piscar 1s steps(1) infinite;
+}
+
+@keyframes piscar {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+/* Slogan */
+.slogan {
+    font-size: 18px;
+    letter-spacing: 1px;
+    opacity: 0.85;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Botão */
+.botao {
+    display: inline-block;
+    padding: 14px 32px;
+    color: var(--preto);
+    background-color: var(--verde);
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 2px solid var(--verde);
+    transition: all 0.2s ease;
+}
+
+.botao:hover {
+    background-color: transparent;
+    color: var(--verde);
+    box-shadow: 0 0 16px var(--verde); /* acende no hover */
+}
+
+/* ---------- SEÇÕES (sobre e contato) ---------- */
+.secao {
+    padding: 72px 24px;
+    border-top: 1px solid var(--verde-fraco);
+}
+
+/* Centraliza e limita a largura do conteúdo */
+.container {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* Título estilo "comentário de código" */
+.secao-titulo {
+    font-size: 28px;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    text-shadow: 0 0 8px var(--verde);
+}
+
+.secao-texto {
+    font-size: 18px;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+/* ---------- FORMULÁRIO ---------- */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Cada campo empilha o rótulo acima do input */
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo label {
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+    opacity: 0.8;
+}
+
+.campo input,
+.campo textarea {
+    font-family: inherit;       /* herda a Courier New do body */
+    font-size: 16px;
+    color: var(--verde);
+    background-color: transparent;
+    border: 1px solid var(--verde-fraco);
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Foco: campo "acende" em verde */
+.campo input:focus,
+.campo textarea:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 8px var(--verde);
+}
+
+/* Placeholder mais apagado para não brigar com o texto digitado */
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: var(--verde);
+    opacity: 0.35;
+}
+
+.campo textarea {
+    resize: vertical; /* permite o usuário crescer a caixa, sem deixar distorcer */
+}
+
+/* Mensagem de confirmação (preenchida via JS) */
+.form-ok {
+    margin-top: 8px;
+    font-size: 16px;
+    color: var(--verde);
+    text-shadow: 0 0 6px var(--verde);
+    opacity: 0;               /* começa invisível */
+    transition: opacity 0.3s ease;
+}
+
+.form-ok.visivel {
+    opacity: 1;               /* vira visível quando o JS adiciona a classe */
+}
+
+/* Botão do formulário herda o estilo .botao usado no hero */
+.form .botao {
+    align-self: flex-start;   /* não estica em largura total */
+}

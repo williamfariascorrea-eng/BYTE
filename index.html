@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BYTE. — estúdio de tecnologia com estética retrô. Sites e sistemas com a alma dos terminais dos anos 90.">
+    <title>BYTE. — Tecnologia com cara retrô</title>
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header__inner">
+            <div class="logo">BYTE.</div>
+            <nav class="nav">
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <p class="status-line" aria-hidden="true">since 1998 · boot_ok · est. sistemas &amp; sonhos</p>
+
+                <h1 class="titulo">
+                    O futuro, no ritmo de 1998<span class="cursor" aria-hidden="true">▌</span>
+                </h1>
+
+                <p class="slogan">Tecnologia com a alma de uma era que não acabou.</p>
+
+                <a href="#contato" class="botao">Quero saber mais</a>
+            </div>
+        </section>
+    </main>
+
+    <section id="sobre" class="secao">
+        <div class="container">
+            <h2 class="secao-titulo">// sobre</h2>
+            <p class="secao-texto">
+                O <strong>BYTE.</strong> é um estúdio de tecnologia com estética
+                retrô — terminais, monitores CRT e a tipografia dos anos 90.
+                Aqui acreditamos que boas ideias nascem de fundamentos sólidos,
+                e que cada projeto é um novo boot do sistema.
+            </p>
+        </div>
+    </section>
+
+    <section id="contato" class="secao">
+        <div class="container">
+            <h2 class="secao-titulo">// contato</h2>
+
+            <form id="form-contato" class="form" novalidate>
+                <div class="campo">
+                    <label for="nome">nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                </div>
+
+                <div class="campo">
+                    <label for="email">e-mail</label>
+                    <input type="email" id="email" name="email" placeholder="voce@exemplo.com" required>
+                </div>
+
+                <div class="campo">
+                    <label for="mensagem">mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Digite sua mensagem aqui..." required></textarea>
+                </div>
+
+                <button type="submit" class="botao">Enviar mensagem</button>
+                <p id="form-ok" class="form-ok" aria-live="polite"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 BYTE. — <span class="cursor" aria-hidden="true">▌</span></p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
