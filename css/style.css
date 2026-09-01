@@ -249,3 +249,81 @@ main {
 .form .botao {
     align-self: flex-start;   /* não estica em largura total */
 }
+
+/* ---------- GALERIA DE PROJETOS ---------- */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+/* Card de projeto: moldura retrô com screenshot no topo */
+.card-projeto {
+    background-color: var(--preto);
+    border: 1px solid var(--verde-fraco);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-projeto:hover {
+    border-color: var(--verde);
+    box-shadow: 0 0 16px var(--verde-fraco);
+}
+
+.card-projeto img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-bottom: 1px solid var(--verde-fraco);
+    filter: grayscale(0.2) contrast(1.05); /* leve toque retrô */
+}
+
+.card-projeto__conteudo {
+    padding: 20px;
+}
+
+.card-projeto h3 {
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    text-shadow: 0 0 8px var(--verde);
+}
+
+.card-projeto__tech {
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 12px;
+}
+
+.card-projeto__conteudo > p:not(.card-projeto__tech) {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin-bottom: 16px;
+}
+
+.card-projeto__links {
+    display: flex;
+    gap: 16px;
+}
+
+.card-projeto__links a {
+    color: var(--preto);
+    background-color: var(--verde);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border: 1px solid var(--verde);
+    transition: all 0.2s ease;
+}
+
+.card-projeto__links a:hover {
+    background-color: transparent;
+    color: var(--verde);
+}
